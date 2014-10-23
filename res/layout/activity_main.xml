@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:background="@color/gray_white"
+    android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/titlebar"
+        android:layout_alignParentTop="true"
+        layout="@layout/normal_titlebar" >
+    </include>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/hline"
+        android:layout_below="@+id/titlebar"
+        android:background="@android:color/white" />
+
+    <View
+        android:id="@+id/hline"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_above="@+id/tab_bg_view"
+        android:background="#E4E5E1" />
+
+    <View
+        android:id="@+id/tab_bg_view"
+        android:layout_width="90dp"
+        android:layout_height="2dp"
+        android:layout_above="@+id/tab"
+        android:visibility="gone"
+        android:background="@color/tab_sel"
+        android:contentDescription="@null" />
+    
+   
+
+    <LinearLayout
+        android:id="@+id/tab"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray_white"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:id="@+id/tab_first"
+            android:layout_width="0dip"
+            android:layout_height="56dip"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/img_first"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_above="@+id/txt_first"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/first" 
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/txt_first"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="@string/tab_first" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tab_second"
+            android:layout_width="0dip"
+            android:layout_height="56dip"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/img_second"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_above="@+id/txt_second"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/second" 
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/txt_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="@string/tab_second" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tab_third"
+            android:layout_width="0dip"
+            android:layout_height="56dip"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/img_third"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_above="@+id/txt_third"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/third" 
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/txt_third"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="@string/tab_third" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tab_fourth"
+            android:layout_width="0dip"
+            android:layout_height="56dip"
+            android:layout_weight="1" >
+
+            <ImageView
+                android:id="@+id/img_fourth"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_above="@+id/txt_fourth"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/fourth" 
+                android:contentDescription="@null"/>
+
+            <TextView
+                android:id="@+id/txt_fourth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:text="@string/tab_fourth" />
+        </RelativeLayout>
+    </LinearLayout>
+     <View
+        android:id="@+id/tab_bg_rangle"
+        android:layout_width="90dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/text_noblack"
+        android:contentDescription="@null" />
+
+</RelativeLayout>

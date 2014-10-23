@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources>
+
+    <color name="solid_red">#f00</color>
+    <color name="black">#000000</color>
+    <color name="play_bg_default">#D19EB3</color>
+    <color name="follow_dj_orange">#FC5A21</color>
+    <color name="txt_gray">#EEEEE0</color>
+    <color name="white">#ffffff</color>
+    <color name="red">#fc6137</color>
+    <color name="grey">#5b5b5b</color>
+    <color name="transparent_background">#50000000</color>
+    <color name="orange">#da6528</color>
+    <color name="text_num_gray">#333</color>
+    <color name="transparent">#00000000</color>
+    <color name="actionbar_background_start">#3A5FCD</color>
+    <color name="actionbar_background_end">#27408B</color>
+    <color name="text_color">#333333</color>
+    <color name="play_list_select">#ff6600</color>
+    <color name="play_list_select1">#6e6e6e</color>
+    <color name="list_noclick">#ffffff</color>
+    <color name="list_click">#dedede</color>
+    <color name="time_open_color">#0ab2f9</color>
+    <color name="rbtn_line">#6d6d6d</color>
+    <color name="clock_text_isopen">#ee5f39</color>
+    <color name="clock_text_isclose">#6d6d6d</color>
+    <color name="text_list_num">#ee5f39</color>
+    <color name="textbtn_click_unable">#afafaf</color>
+    <!-- list 中 线的颜色 -->
+    <color name="list_line">#e5e5e5</color>
+    <!-- 不是纯黑的字的颜色值 -->
+    <color name="text_noblack">#99555555</color>
+
+    <!-- 按钮高亮背景颜色 -->
+    <color name="btn_pressed_bg">#cccccc</color>
+    <color name="btn_focused_bg">#cccccc</color>
+    <color name="btn_normal_bg">#00000000</color>
+
+    <!-- TAB文字默认 -->
+    <color name="tab_def">#505050</color>
+    <!-- TAB高亮 -->
+    <color name="tab_sel">#fc6137</color>
+
+     <color name="mine_item_press_back">#f0f0f0</color>
+     
+     <color name="title_btn_press_back">#ddf0f0f0</color>
+     
+     <!-- 菜单栏默认背景颜色 -->
+    <color name="radio_check_text_color">#fc6137</color>
+    <color name="radio_uncheck_text_color">#5e5e5e</color>
+    
+    <color name="comm_list_title_text">#484848</color>
+    <color name="comm_list_subtitle_text">#a5a5a5</color>
+    <color name="random_color1">#1887D8</color>
+    <color name="random_color2">#E55B86</color>
+    <color name="random_color3">#1E9784</color>
+    <color name="random_color4">#EF6E11</color>
+    <color name="comm_press_color">#44000000</color>
+    <color name="comm_item_press_color">#33000000</color>
+    <color name="gray_white">#FCFCFC</color>
+</resources>
