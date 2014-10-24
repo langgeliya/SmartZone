@@ -12,3 +12,17 @@ bin/classes/com/smartzone/core/lib/SmartZoneMainActivity$3.class
 bin/classes.dex
 
 *.class
+
+bin/classes.dex
+
+bin/SmartZone.apk
+
+bin/classes/com/smartzone/core/lib/FirstPageFragment.class
+
+bin/dexedLibs/android-support-v4-36ccbe112fd8b814697b050e2484f335.jar
+
+bin/dexedLibs/gson-1.6-b43fd5c859ee150d94cad0356127bdf5.jar
+
+bin/dexedLibs/library-2b045fb06a949a23bac1b2f45930a501.jar
+
+*.ap_
