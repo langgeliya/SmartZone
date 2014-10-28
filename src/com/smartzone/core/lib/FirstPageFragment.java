@@ -1,12 +1,10 @@
 package com.smartzone.core.lib;
 
-import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import org.apache.http.Header;
-
-import com.loopj.android.http.AsyncHttpClient;
-import com.loopj.android.http.AsyncHttpResponseHandler;
-import com.smartzone.core.utils.LogUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -15,7 +13,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.smartzone.bean.SimBean;
+import com.smartzone.core.utils.CommUtils;
+import com.smartzone.core.utils.LogUtils;
+
 public class FirstPageFragment extends Fragment {
+	
+	private ArrayList<SimBean> mData;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -79,6 +85,7 @@ public class FirstPageFragment extends Fragment {
 	
 	private void initNetWorking() {
 		String url = "http://58.68.225.142/sqtest/jsontest.php?a=list";
+		mData = new ArrayList<SimBean>();
 		AsyncHttpClient client = new AsyncHttpClient();
 		client.get(url, new AsyncHttpResponseHandler() {
 
@@ -94,8 +101,15 @@ public class FirstPageFragment extends Fragment {
 		    	LogUtils.printByTag(LogUtils.TAG1, "statusCode:" + statusCode);
 		    	if(statusCode == 200){
 		    		try {
-						LogUtils.printByTag(LogUtils.TAG1, new String(response, "gbk"));
-					} catch (UnsupportedEncodingException e) {
+						LogUtils.printByTag(LogUtils.TAG1, new String(response, "utf8"));
+						JSONArray array = new JSONArray(CommUtils.byteToString(response));
+						for (int i = 0; i < array.length(); i++) {
+							JSONObject jo = array.getJSONObject(i);
+							SimBean bean = new SimBean();
+							bean.parse(jo);
+							mData.add(bean);
+						}
+					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}

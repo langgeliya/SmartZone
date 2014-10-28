@@ -1,5 +1,7 @@
 package com.smartzone.core.utils;
 
+import org.apache.http.util.EncodingUtils;
+
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -14,12 +16,23 @@ public class CommUtils {
 
 	// 得到屏幕的宽高
 	private static int[] mScreenSize = { -1, -1 };
+	public static final String ENCODE_GBK = "gbk";
+	public static final String ENCODE_UTF = "utf-8";
 
 	public static void initScreenSize() {
 		mScreenSize[0] = -1;
 		mScreenSize[1] = -1;
 	}
-
+	public static String byteToString(byte[] response) {
+		String result = "";
+		try {
+			result = EncodingUtils.getString(response, ENCODE_UTF);
+		} catch (OutOfMemoryError e) {
+			e.printStackTrace();
+			result = "";
+		}
+		return result;
+	}
 	public static void initScreenSize(Context context) {
 		if (mScreenSize[0] == -1) {
 			WindowManager wm = (WindowManager) context
@@ -74,5 +87,21 @@ public class CommUtils {
 			return true;
 		else
 			return false;
+	}
+	
+	public static String bytesToHexString(byte[] src) {
+		StringBuilder stringBuilder = new StringBuilder("");
+		if (src == null || src.length <= 0) {
+			return null;
+		}
+		for (int i = 0; i < src.length; i++) {
+			int v = src[i] & 0xFF;
+			String hv = Integer.toHexString(v);
+			if (hv.length() < 2) {
+				stringBuilder.append(0);
+			}
+			stringBuilder.append(hv);
+		}
+		return stringBuilder.toString();
 	}
 }
