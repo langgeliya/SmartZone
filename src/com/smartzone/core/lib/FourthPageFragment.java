@@ -5,7 +5,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import com.smartzone.core.R;
 
 public class FourthPageFragment extends Fragment {
 
@@ -19,9 +20,8 @@ public class FourthPageFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		TextView tv = new TextView(getActivity());
-		tv.setText("fourth page");
-		return tv;
+		View view = inflater.inflate(R.layout.fragment_mypage, null);
+		return view;
 	}
 
 	@Override

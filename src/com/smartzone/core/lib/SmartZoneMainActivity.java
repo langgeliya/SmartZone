@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.TranslateAnimation;
@@ -48,7 +49,7 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 		setContentView(R.layout.activity_main);
 		initTitleBar();
 		setLeftBtnOrNot(View.INVISIBLE);
-		setPageTitle("my page");
+		setPageTitle("书香苑小区");
 		init();
 		initListener();
 		moveToSelectedPage(0);
@@ -56,6 +57,7 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 
 	private void init() {
 		viewPager = (ViewPager) findViewById(R.id.viewpager);
+		viewPager.setOffscreenPageLimit(3);
 		tab_bg_view = (View) findViewById(R.id.tab_bg_view);
 		tab_bg_rangle = (View) findViewById(R.id.tab_bg_rangle);
 		tab_txt1 = (TextView) findViewById(R.id.txt_first);
@@ -71,6 +73,10 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 		mTabTextList.add(tab_txt2);
 		mTabTextList.add(tab_txt3);
 		mTabTextList.add(tab_txt4);
+		tab_imageview1 = (ImageView) findViewById(R.id.img_first);
+		tab_imageview2 = (ImageView) findViewById(R.id.img_second);
+		tab_imageview3 = (ImageView) findViewById(R.id.img_third);
+		tab_imageview4 = (ImageView) findViewById(R.id.img_fourth);
 		fragments = new ArrayList<Fragment>();
 		firstPage = new FirstPageFragment();
 		secondPage = new SecondPageFragment();
@@ -111,6 +117,27 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 	}
 
 	private void initListener() {
+		viewPager.setOnPageChangeListener(new OnPageChangeListener() {
+
+			@Override
+			public void onPageSelected(int page) {
+				// TODO Auto-generated method stub
+				moveToSelectedPage(page);
+			}
+
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+
 		tab_relativelayout1.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -143,11 +170,69 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 				moveToSelectedPage(3);
 			}
 		});
+
 	}
 
 	private void moveToSelectedPage(int page) {
 		startAnimation(page);
+		changeTab(page);
 		viewPager.setCurrentItem(page);
+	}
+
+	private void changeTab(int page) {
+		switch (page) {
+		case 0:
+			tab_imageview1
+					.setImageResource(R.drawable.icon_home_index_selected);
+			tab_txt1.setTextColor(getResources().getColor(R.color.tab_sel));
+			tab_imageview2
+					.setImageResource(R.drawable.icon_home_discover_normal);
+			tab_txt2.setTextColor(getResources().getColor(R.color.tab_def));
+			tab_imageview3
+					.setImageResource(R.drawable.icon_home_community_normal);
+			tab_txt3.setTextColor(getResources().getColor(R.color.tab_def));
+			tab_imageview4.setImageResource(R.drawable.icon_home_me_normal);
+			tab_txt4.setTextColor(getResources().getColor(R.color.tab_def));
+			break;
+		case 1:
+			tab_imageview1.setImageResource(R.drawable.icon_home_index_normal);
+			tab_txt1.setTextColor(getResources().getColor(R.color.tab_def));
+			tab_imageview2
+					.setImageResource(R.drawable.icon_home_discover_selected);
+			tab_txt2.setTextColor(getResources().getColor(R.color.tab_sel));
+			tab_imageview3
+					.setImageResource(R.drawable.icon_home_community_normal);
+			tab_txt3.setTextColor(getResources().getColor(R.color.tab_def));
+			tab_imageview4.setImageResource(R.drawable.icon_home_me_normal);
+			tab_txt4.setTextColor(getResources().getColor(R.color.tab_def));
+			break;
+		case 2:
+			tab_imageview1.setImageResource(R.drawable.icon_home_index_normal);
+			tab_txt1.setTextColor(getResources().getColor(R.color.tab_def));
+			tab_imageview2
+					.setImageResource(R.drawable.icon_home_discover_normal);
+			tab_txt2.setTextColor(getResources().getColor(R.color.tab_def));
+			tab_imageview3
+					.setImageResource(R.drawable.icon_home_community_selected);
+			tab_txt3.setTextColor(getResources().getColor(R.color.tab_sel));
+			tab_imageview4.setImageResource(R.drawable.icon_home_me_normal);
+			tab_txt4.setTextColor(getResources().getColor(R.color.tab_def));
+			break;
+		case 3:
+			tab_imageview1.setImageResource(R.drawable.icon_home_index_normal);
+			tab_txt1.setTextColor(getResources().getColor(R.color.tab_def));
+			tab_imageview2
+					.setImageResource(R.drawable.icon_home_discover_normal);
+			tab_txt2.setTextColor(getResources().getColor(R.color.tab_def));
+			tab_imageview3
+					.setImageResource(R.drawable.icon_home_community_normal);
+			tab_txt3.setTextColor(getResources().getColor(R.color.tab_def));
+			tab_imageview4.setImageResource(R.drawable.icon_home_me_selected);
+			tab_txt4.setTextColor(getResources().getColor(R.color.tab_sel));
+			break;
+		default:
+			break;
+		}
 	}
 
 	@Override
@@ -185,29 +270,31 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 		// TODO Auto-generated method stub
 		super.onStop();
 	}
-	
+
 	private void initNetWorking() {
 		AsyncHttpClient client = new AsyncHttpClient();
 		client.get("http://www.google.com", new AsyncHttpResponseHandler() {
 
-		    @Override
-		    public void onStart() {
-		        // called before request is started
-		    }
+			@Override
+			public void onStart() {
+				// called before request is started
+			}
 
-		    @Override
-		    public void onSuccess(int statusCode, Header[] headers, byte[] response) {
-		        // called when response HTTP status is "200 OK"
-		    }
+			@Override
+			public void onSuccess(int statusCode, Header[] headers,
+					byte[] response) {
+				// called when response HTTP status is "200 OK"
+			}
 
-		    @Override
-		    public void onFailure(int statusCode, Header[] headers, byte[] errorResponse, Throwable e) {
-		        // called when response HTTP status is "4XX" (eg. 401, 403, 404)
-		    }
+			@Override
+			public void onFailure(int statusCode, Header[] headers,
+					byte[] errorResponse, Throwable e) {
+				// called when response HTTP status is "4XX" (eg. 401, 403, 404)
+			}
 
-		    @Override
-		    public void onRetry(int retryNo) {
-		        // called when request is retried
+			@Override
+			public void onRetry(int retryNo) {
+				// called when request is retried
 			}
 		});
 	}

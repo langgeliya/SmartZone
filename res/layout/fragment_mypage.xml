@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_background">
+
+    <RelativeLayout
+        android:id="@+id/profile"
+        android:layout_width="fill_parent"
+        android:layout_height="72dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/profile_logo"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_user_new_login" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/profile_logo"
+            android:text="@string/my_page_login" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/list_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/boardcast"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:layout_below="@+id/profile"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/boardcast_logo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_me_community_notice" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/boardcast_logo"
+            android:gravity="center"
+            android:text="@string/my_page_boardcast" />
+        
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_arrow_right" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:background="@color/list_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/collection"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:layout_below="@+id/boardcast"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/collection_logo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_me_order" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/collection_logo"
+            android:gravity="center"
+            android:text="@string/my_page_boardcast" />
+
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_arrow_right" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/list_line" />
+    </RelativeLayout>
+
+</RelativeLayout>

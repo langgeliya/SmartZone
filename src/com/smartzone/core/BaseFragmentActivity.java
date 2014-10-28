@@ -90,6 +90,7 @@ public class BaseFragmentActivity extends FragmentActivity implements
 		}
 	}
 	
+	
 	protected void setLeftBtnOrNot(int i) {
 		if(mLeftBtn != null){
 			mLeftBtn.setVisibility(i);

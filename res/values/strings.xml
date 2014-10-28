@@ -4,9 +4,10 @@
     <string name="app_name">SmartZone</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="tab_first">first</string>
-    <string name="tab_second">second</string>
-    <string name="tab_third">third</string>
-    <string name="tab_fourth">fourth</string>
-
+    <string name="tab_first">首页</string>
+    <string name="tab_second">动态</string>
+    <string name="tab_third">分类</string>
+    <string name="tab_fourth">我的</string>
+    <string name="my_page_login">登陆／注册</string>
+	<string name="my_page_boardcast">小区广播</string>
 </resources>

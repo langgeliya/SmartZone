@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="50dp"
     android:layout_alignParentTop="true"
-    android:background="#f8f8f8"
+    android:background="#F4D230"
     android:gravity="center_vertical" >
 
     <!-- 标题栏左边返回图标 -->

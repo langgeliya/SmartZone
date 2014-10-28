@@ -10,7 +10,7 @@
         layout="@layout/normal_titlebar" >
     </include>
 
-    <android.support.v4.view.ViewPager
+    <com.smartzone.core.view.MainViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -57,7 +57,7 @@
                 android:layout_height="24dp"
                 android:layout_above="@+id/txt_first"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/first" 
+                android:src="@drawable/icon_home_index_normal" 
                 android:contentDescription="@null"/>
 
             <TextView
@@ -83,7 +83,7 @@
                 android:layout_height="24dp"
                 android:layout_above="@+id/txt_second"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/second" 
+                android:src="@drawable/icon_home_discover_normal" 
                 android:contentDescription="@null"/>
 
             <TextView
@@ -109,7 +109,7 @@
                 android:layout_height="24dp"
                 android:layout_above="@+id/txt_third"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/third" 
+                android:src="@drawable/icon_home_community_normal" 
                 android:contentDescription="@null"/>
 
             <TextView
@@ -135,7 +135,7 @@
                 android:layout_height="24dp"
                 android:layout_above="@+id/txt_fourth"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/fourth" 
+                android:src="@drawable/icon_home_me_normal" 
                 android:contentDescription="@null"/>
 
             <TextView
