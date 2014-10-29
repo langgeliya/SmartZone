@@ -77,16 +77,16 @@
             android:layout_marginLeft="20dp"
             android:background="@color/list_line" />
     </RelativeLayout>
-
+    
     <RelativeLayout
-        android:id="@+id/collection"
+        android:id="@+id/privateMsg"
         android:layout_width="fill_parent"
         android:layout_height="64dp"
         android:layout_below="@+id/boardcast"
         android:background="@color/white" >
 
         <ImageView
-            android:id="@+id/collection_logo"
+            android:id="@+id/private_logo"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_centerVertical="true"
@@ -99,9 +99,51 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/private_logo"
+            android:gravity="center"
+            android:text="@string/my_page_privatemsg" />
+        
+        <ImageView
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="8dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_arrow_right" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="20dp"
+            android:background="@color/list_line" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/collection"
+        android:layout_width="fill_parent"
+        android:layout_height="64dp"
+        android:layout_below="@+id/privateMsg"
+        android:background="@color/white" >
+
+        <ImageView
+            android:id="@+id/collection_logo"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:contentDescription="@null"
+            android:src="@drawable/icon_me_my_message" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/collection_logo"
             android:gravity="center"
-            android:text="@string/my_page_boardcast" />
+            android:text="@string/my_page_collection" />
 
         <ImageView
             android:layout_width="16dp"

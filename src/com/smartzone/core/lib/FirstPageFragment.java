@@ -11,17 +11,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.smartzone.bean.SimBean;
+import com.smartzone.core.R;
 import com.smartzone.core.utils.CommUtils;
 import com.smartzone.core.utils.LogUtils;
 
 public class FirstPageFragment extends Fragment {
 	
 	private ArrayList<SimBean> mData;
+	private ListView listView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -34,11 +37,18 @@ public class FirstPageFragment extends Fragment {
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 //		View mView = inflater.inflate(R.layout.play_list_frament, null);
-		TextView tv = new TextView(getActivity());
-		tv.setText("first page");
-		LogUtils.printByTag(LogUtils.TAG1, "oncreate");
+		View view = inflater.inflate(R.layout.fragment_main, null);
+		init(view);
 		initNetWorking();
-		return tv;
+		return view;
+	}
+	
+	private void init(View v) {
+		listView = (ListView)v.findViewById(R.id.listview);
+	}
+	
+	private void initListener() {
+		
 	}
 
 	@Override

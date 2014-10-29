@@ -5,10 +5,12 @@ import java.util.ArrayList;
 import org.apache.http.Header;
 
 import android.content.Intent;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.animation.TranslateAnimation;
@@ -297,6 +299,24 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 				// called when request is retried
 			}
 		});
+	}
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			CommUtils.exitApp(getApplicationContext());
+			return true;
+		}
+		if (keyCode == KeyEvent.KEYCODE_MENU) {
+			return true;
+		}
+		if (keyCode == KeyEvent.KEYCODE_HOME) {
+			return true;
+		}
+		if (keyCode == KeyEvent.KEYCODE_SEARCH) {
+			return true;
+		}
+
+		return super.onKeyDown(keyCode, event);
 	}
 
 }

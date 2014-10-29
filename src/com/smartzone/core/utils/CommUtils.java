@@ -9,6 +9,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.smartzone.core.SmartZoneApplication;
 
@@ -103,5 +104,29 @@ public class CommUtils {
 			stringBuilder.append(hv);
 		}
 		return stringBuilder.toString();
+	}
+	public static void showToast(Context context, String message) {
+		try {
+			Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public static void showToast(Context context, int resId) {
+		try {
+			Toast.makeText(context, context.getString(resId),
+					Toast.LENGTH_SHORT).show();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public static void exitApp(Context context) {
+		SmartZoneApplication app = (SmartZoneApplication) context
+				.getApplicationContext();
+		app.closeAllActivity();
+		System.exit(0);//正常退出App
 	}
 }

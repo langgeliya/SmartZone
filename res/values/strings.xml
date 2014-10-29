@@ -10,4 +10,6 @@
     <string name="tab_fourth">我的</string>
     <string name="my_page_login">登陆／注册</string>
 	<string name="my_page_boardcast">小区广播</string>
+	<string name="my_page_privatemsg">我的私信</string>
+	<string name="my_page_collection">我的收藏</string>
 </resources>
