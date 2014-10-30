@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 import org.apache.http.Header;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.AudioManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -305,7 +306,7 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			CommUtils.exitApp(getApplicationContext());
+			warninng();
 			return true;
 		}
 		if (keyCode == KeyEvent.KEYCODE_MENU) {
@@ -319,6 +320,31 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 		}
 
 		return super.onKeyDown(keyCode, event);
+	}
+	
+	private void warninng() {
+		new AlertDialog.Builder(SmartZoneMainActivity.this)
+		.setTitle("提示")
+		.setMessage("是否退出？")
+		.setPositiveButton("确定",
+				new DialogInterface.OnClickListener() {
+
+					public void onClick(DialogInterface dialog,
+							int which) {
+						// TODO: 删除所选文件
+						CommUtils.exitApp(getApplicationContext());
+					}
+
+				})
+		.setNegativeButton("取消",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog,
+							int which) {
+
+					}
+				}).show();
 	}
 
 }

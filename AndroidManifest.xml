@@ -31,6 +31,13 @@
             android:excludeFromRecents="true"
             android:screenOrientation="portrait" >
         </activity>
+        
+        <activity
+            android:name=".lib.ClassifyActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait" >
+        </activity>
 
         <meta-data
             android:name="ScreenOrientation"

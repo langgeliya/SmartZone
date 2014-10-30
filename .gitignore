@@ -88,3 +88,11 @@ bin/classes/com/smartzone/core/lib/SecondPageFragment.class
 bin/classes/com/smartzone/core/lib/FourthPageFragment.class
 
 bin/classes/com/smartzone/core/BaseFragmentActivity.class
+
+bin/AndroidManifest.xml
+
+bin/classes/com/smartzone/core/lib/ThirdPageFragment.class
+
+bin/classes/com/smartzone/core/SmartZoneApplication.class
+
+bin/classes/com/smartzone/core/utils/ActivityUtils.class
