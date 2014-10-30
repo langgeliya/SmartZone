@@ -52,6 +52,8 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 		initTitleBar();
 		setLeftBtnOrNot(View.INVISIBLE);
 		setPageTitle("书香苑小区");
+		setRight1Btn(R.drawable.icon_home_fragment_location);
+		setRight2Btn(R.drawable.icon_search);
 		init();
 		initListener();
 		moveToSelectedPage(0);

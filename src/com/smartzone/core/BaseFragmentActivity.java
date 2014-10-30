@@ -19,7 +19,7 @@ public class BaseFragmentActivity extends FragmentActivity implements
 	public TextView mTitleView;
 	// 标题栏左侧，右侧图标
 	public ImageButton mLeftBtn, mRight1Btn, mRight2Btn;
-	public RelativeLayout sec_title_layout;
+	public RelativeLayout sec_title_layout, title_right_layout_2;
 
 	@Override
 	protected void onCreate(Bundle arg0) {
@@ -76,6 +76,7 @@ public class BaseFragmentActivity extends FragmentActivity implements
 		mRight1Btn = (ImageButton) findViewById(R.id.title_right_img_1);
 		mRight2Btn = (ImageButton) findViewById(R.id.title_right_img_2);
 		sec_title_layout = (RelativeLayout) findViewById(R.id.sec_title_layout);
+		title_right_layout_2 = (RelativeLayout) findViewById(R.id.title_right_layout_2);
 		if (mLeftBtn != null)
 			mLeftBtn.setOnClickListener(this);
 		if (mRight1Btn != null)
@@ -119,9 +120,9 @@ public class BaseFragmentActivity extends FragmentActivity implements
 	}
 
 	public void setRight2BtnClickListenser(View.OnClickListener listenser) {
-		if (mRight2Btn != null) {
+		if (title_right_layout_2 != null) {
 			mRight2Btn.setVisibility(View.VISIBLE);
-			mRight2Btn.setOnClickListener(listenser);
+			title_right_layout_2.setOnClickListener(listenser);
 		}
 	}
 

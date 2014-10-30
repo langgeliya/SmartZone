@@ -7,6 +7,8 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,15 +18,36 @@ import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.smartzone.adapter.MessageAdapter;
 import com.smartzone.bean.SimBean;
 import com.smartzone.core.R;
 import com.smartzone.core.utils.CommUtils;
+import com.smartzone.core.utils.CommValues;
 import com.smartzone.core.utils.LogUtils;
 
 public class FirstPageFragment extends Fragment {
 	
 	private ArrayList<SimBean> mData;
 	private ListView listView;
+	private MessageAdapter mAdapter;
+	private static final int MSG_REFRESH_OK = 1;
+	private Handler mHandler = new Handler(){
+
+		@Override
+		public void handleMessage(Message msg) {
+			// TODO Auto-generated method stub
+			super.handleMessage(msg);
+			switch (msg.what) {
+			case MSG_REFRESH_OK:
+				refresh();
+				break;
+
+			default:
+				break;
+			}
+		}
+		
+	};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -44,7 +67,10 @@ public class FirstPageFragment extends Fragment {
 	}
 	
 	private void init(View v) {
+		mData = new ArrayList<SimBean>();
 		listView = (ListView)v.findViewById(R.id.listview);
+		mAdapter = new MessageAdapter(getActivity(), mData);
+		listView.setAdapter(mAdapter);
 	}
 	
 	private void initListener() {
@@ -93,9 +119,15 @@ public class FirstPageFragment extends Fragment {
 		super.onStop();
 	}
 	
+	public void refresh() {
+		if(mAdapter != null){
+			mAdapter.setDataSource(mData);
+			mAdapter.notifyDataSetChanged();
+		}
+	}
+	
 	private void initNetWorking() {
-		String url = "http://58.68.225.142/sqtest/jsontest.php?a=list";
-		mData = new ArrayList<SimBean>();
+		String url = CommValues.testUrl1;
 		AsyncHttpClient client = new AsyncHttpClient();
 		client.get(url, new AsyncHttpResponseHandler() {
 
@@ -108,7 +140,7 @@ public class FirstPageFragment extends Fragment {
 		    @Override
 		    public void onSuccess(int statusCode, Header[] headers, byte[] response) {
 		        // called when response HTTP status is "200 OK"
-		    	LogUtils.printByTag(LogUtils.TAG1, "statusCode:" + statusCode);
+//		    	LogUtils.printByTag(LogUtils.TAG1, "statusCode:" + statusCode);
 		    	if(statusCode == 200){
 		    		try {
 						LogUtils.printByTag(LogUtils.TAG1, new String(response, "utf8"));
@@ -118,6 +150,9 @@ public class FirstPageFragment extends Fragment {
 							SimBean bean = new SimBean();
 							bean.parse(jo);
 							mData.add(bean);
+						}
+						if(mData != null && mData.size() > 0){
+							mHandler.sendEmptyMessage(MSG_REFRESH_OK);
 						}
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
