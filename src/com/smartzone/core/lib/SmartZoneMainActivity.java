@@ -41,7 +41,7 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 	private ImageView tab_imageview1, tab_imageview2, tab_imageview3,
 			tab_imageview4;
 	private TextView tab_txt1, tab_txt2, tab_txt3, tab_txt4;
-	private View tab_bg_view, tab_bg_rangle;
+	private View tab_bg_rangle;
 	private int mSelectIndex = -1;
 	private ArrayList<TextView> mTabTextList = null;
 
@@ -63,7 +63,6 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 	private void init() {
 		viewPager = (ViewPager) findViewById(R.id.viewpager);
 		viewPager.setOffscreenPageLimit(3);
-		tab_bg_view = (View) findViewById(R.id.tab_bg_view);
 		tab_bg_rangle = (View) findViewById(R.id.tab_bg_rangle);
 		tab_txt1 = (TextView) findViewById(R.id.txt_first);
 		tab_txt2 = (TextView) findViewById(R.id.txt_second);
@@ -107,7 +106,6 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 				* w, 0, 0);
 		ta.setDuration(300);
 		ta.setFillAfter(true);
-		tab_bg_view.startAnimation(ta);
 		tab_bg_rangle.startAnimation(ta);
 
 		mSelectIndex = index;

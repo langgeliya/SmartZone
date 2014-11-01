@@ -17,6 +17,7 @@
 
 <resources>
 
+    <color name="bg_transparent">#00ffffff</color>
     <color name="solid_red">#f00</color>
     <color name="black">#000000</color>
     <color name="play_bg_default">#D19EB3</color>
@@ -53,9 +54,9 @@
     <color name="btn_normal_bg">#00000000</color>
 
     <!-- TAB文字默认 -->
-    <color name="tab_def">#B3B3B3</color>
+    <color name="tab_def">#505050</color>
     <!-- TAB高亮 -->
-    <color name="tab_sel">#505050</color>
+    <color name="tab_sel">#B3B3B3</color>
 
      <color name="mine_item_press_back">#f0f0f0</color>
      
@@ -73,6 +74,8 @@
     <color name="random_color4">#EF6E11</color>
     <color name="comm_press_color">#44000000</color>
     <color name="comm_item_press_color">#33000000</color>
-    <color name="gray_white">#FCFCFC</color>
+    <color name="gray_white">#44FCFCFC</color>
     <color name="main_background">#F0F0F0</color>
+    <color name="tabbar_background">#1B1C1E</color>
+    
 </resources>
