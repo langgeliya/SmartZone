@@ -10,6 +10,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -85,7 +86,7 @@ public class BaseFragmentActivity extends FragmentActivity implements
 //		if (mRight2Btn != null)
 //			mRight2Btn.setOnClickListener(this);
 	}
-
+	
 	protected void setPageTitle(String title) {
 		if (mTitleView != null) {
 			mTitleView.setText(title);

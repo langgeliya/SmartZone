@@ -4,17 +4,33 @@
     android:layout_height="match_parent"
     android:background="@color/main_background" >
 
-	<com.smartzone.core.view.JazzyViewPager 
-	    android:id="@+id/type_banner"
-	    android:layout_width="fill_parent"
-	    android:layout_height="160dp">
-	</com.smartzone.core.view.JazzyViewPager>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="160dp" 
+        android:id="@+id/banner_layout">
+
+        <com.smartzone.core.view.JazzyViewPager
+            android:id="@+id/type_banner"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent" >
+        </com.smartzone.core.view.JazzyViewPager>
+
+        <LinearLayout
+            android:id="@+id/viewGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </RelativeLayout>
 
     <GridView
         android:id="@+id/gridView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/type_banner"
+        android:layout_below="@+id/banner_layout"
         android:background="@color/white"
         android:cacheColorHint="#00000000"
         android:listSelector="@drawable/comm_press_background"

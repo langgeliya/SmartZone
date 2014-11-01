@@ -13,7 +13,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -29,6 +31,8 @@ public class SecondPageFragment extends Fragment {
 	private ArrayList<SimBean> mData;
 	private ListView listView;
 	private TimeLineAdapter mAdapter;
+	private LinearLayout failLayout;
+	private TextView failText;
 	private static final int MSG_REFRESH_OK = 1;
 	private Handler mHandler = new Handler(){
 
@@ -60,6 +64,7 @@ public class SecondPageFragment extends Fragment {
 		View view = inflater.inflate(R.layout.fragment_timeline, null);
 		init(view);
 		initListener();
+		refresh();
 		initNetWorking();
 		return view;
 	}
@@ -67,6 +72,8 @@ public class SecondPageFragment extends Fragment {
 	private void init(View v) {
 		mData = new ArrayList<SimBean>();
 		listView = (ListView)v.findViewById(R.id.listview);
+		failLayout = (LinearLayout) v.findViewById(R.id.failLayout);
+		failText = (TextView) v.findViewById(R.id.failText);
 		mAdapter = new TimeLineAdapter(getActivity(), mData);
 		listView.setAdapter(mAdapter);
 	}
@@ -79,6 +86,12 @@ public class SecondPageFragment extends Fragment {
 		if(mAdapter != null){
 			mAdapter.setDataSource(mData);
 			mAdapter.notifyDataSetChanged();
+		}
+		if(mData != null && mData.size() == 0){
+			failLayout.setVisibility(View.VISIBLE);
+			failText.setText("网络请求失败，请重新尝试。");
+		}else {
+			failLayout.setVisibility(View.GONE);
 		}
 	}
 	

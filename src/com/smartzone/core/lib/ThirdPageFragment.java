@@ -4,15 +4,20 @@ import java.util.ArrayList;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.smartzone.adapter.BannerAdapter;
 import com.smartzone.adapter.ImformationAdapter;
 import com.smartzone.bean.TypeBean;
 import com.smartzone.core.R;
+import com.smartzone.core.utils.CommUtils;
 import com.smartzone.core.view.JazzyViewPager;
 import com.smartzone.core.view.JazzyViewPager.TransitionEffect;
 
@@ -21,10 +26,34 @@ public class ThirdPageFragment extends Fragment {
 	private ArrayList<TypeBean> mData;
 	private ImformationAdapter mAdapter;
 	private JazzyViewPager mJazzy;
+	private ImageView imageView;
+	private ImageView[] imageViews;
+	private LinearLayout group;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		View view = inflater.inflate(R.layout.fragment_imformatiogn, null);
+		init(view);
+		setupJazziness(view, TransitionEffect.Tablet);
+		initPagerIndicator(5);
+		initListener();
+		initData();
+		return view;
+	}
+
+	private void init(View view) {
+		group = (LinearLayout)view.findViewById(R.id.viewGroup);
+		mData = new ArrayList<TypeBean>();
+		mAdapter = new ImformationAdapter(mData, getActivity());
+		grid = (GridView)view.findViewById(R.id.gridView);
+		grid.setAdapter(mAdapter);
 	}
 	
 	private void setupJazziness(View v, TransitionEffect effect) {
@@ -34,23 +63,52 @@ public class ThirdPageFragment extends Fragment {
 		mJazzy.setAdapter(new BannerAdapter(getActivity(), mJazzy));
 		mJazzy.setPageMargin(30);
 	}
-
-	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		View view = inflater.inflate(R.layout.fragment_imformatiogn, null);
-		init(view);
-		setupJazziness(view, TransitionEffect.Tablet);
-		initData();
-		return view;
+	
+	private void initPagerIndicator(int pageCount) {
+		imageViews = new ImageView[pageCount];
+		for (int i = 0; i < pageCount; i++) {
+			imageView = new ImageView(getActivity());
+			imageView.setLayoutParams(new LayoutParams(CommUtils.px2dip(getActivity(), 60), CommUtils.px2dip(getActivity(), 40)));
+			imageView.setPadding(CommUtils.px2dip(getActivity(), 20), 0, CommUtils.px2dip(getActivity(), 20), 0);
+			imageViews[i] = imageView;
+			if (i == 0) {
+				// 默认选中第一张图片
+				imageViews[i]
+						.setImageResource(R.drawable.page_indicator_focused);
+			} else {
+				imageViews[i].setImageResource(R.drawable.page_indicator_normal);
+			}
+			group.addView(imageViews[i]);
+		}
 	}
-
-	private void init(View view) {
-		mData = new ArrayList<TypeBean>();
-		mAdapter = new ImformationAdapter(mData, getActivity());
-		grid = (GridView)view.findViewById(R.id.gridView);
-		grid.setAdapter(mAdapter);
+	
+	private void initListener() {
+		mJazzy.setOnPageChangeListener(new OnPageChangeListener() {
+			
+			@Override
+			public void onPageSelected(int arg0) {
+				// TODO Auto-generated method stub
+				for (int i = 0; i < imageViews.length; i++) {
+					imageViews[arg0]
+							.setImageResource(R.drawable.page_indicator_focused);
+					if (arg0 != i) {
+						imageViews[i].setImageResource(R.drawable.page_indicator_normal);
+					}
+				}
+			}
+			
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onPageScrollStateChanged(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 	
 	private void initData() {

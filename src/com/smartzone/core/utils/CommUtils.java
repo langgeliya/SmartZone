@@ -6,12 +6,12 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
-import android.content.res.Resources;
-import android.util.TypedValue;
 
 import com.smartzone.core.SmartZoneApplication;
 
@@ -134,5 +134,19 @@ public class CommUtils {
 				.getApplicationContext();
 		app.closeAllActivity();
 		System.exit(0);//正常退出App
+	}
+	public static int dip2px(Context context, float dpValue) {
+		if (context == null) {
+			context = SmartZoneApplication.mContext;
+		}
+		final float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (dpValue * scale + 0.5f);
+	}
+	/**
+	 * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+	 */
+	public static int px2dip(Context context, float pxValue) {
+		final float scale = context.getResources().getDisplayMetrics().density;
+		return (int) (pxValue / scale + 0.5f);
 	}
 }
