@@ -1,11 +1,17 @@
 package com.smartzone.bean;
 
+import java.io.Serializable;
+
 import org.json.JSONObject;
 
 import com.smartzone.core.utils.JsonUtils;
 
-public class SimBean {
+public class SimBean implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public String time;
 	public String title;
 	public String k1;
