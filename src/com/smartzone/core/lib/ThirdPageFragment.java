@@ -2,26 +2,37 @@ package com.smartzone.core.lib;
 
 import java.util.ArrayList;
 
-import com.smartzone.adapter.ImformationAdapter;
-import com.smartzone.bean.TypeBean;
-import com.smartzone.core.R;
-
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
-import android.widget.TextView;
+
+import com.smartzone.adapter.BannerAdapter;
+import com.smartzone.adapter.ImformationAdapter;
+import com.smartzone.bean.TypeBean;
+import com.smartzone.core.R;
+import com.smartzone.core.view.JazzyViewPager;
+import com.smartzone.core.view.JazzyViewPager.TransitionEffect;
 
 public class ThirdPageFragment extends Fragment {
 	private GridView grid;
 	private ArrayList<TypeBean> mData;
 	private ImformationAdapter mAdapter;
+	private JazzyViewPager mJazzy;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
+	}
+	
+	private void setupJazziness(View v, TransitionEffect effect) {
+		mJazzy = (JazzyViewPager) v.findViewById(R.id.type_banner);
+		mJazzy.setTransitionEffect(effect);
+		mJazzy.setOffscreenPageLimit(5);
+		mJazzy.setAdapter(new BannerAdapter(getActivity(), mJazzy));
+		mJazzy.setPageMargin(30);
 	}
 
 	@Override
@@ -30,6 +41,7 @@ public class ThirdPageFragment extends Fragment {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.fragment_imformatiogn, null);
 		init(view);
+		setupJazziness(view, TransitionEffect.Tablet);
 		initData();
 		return view;
 	}
@@ -110,5 +122,5 @@ public class ThirdPageFragment extends Fragment {
 		// TODO Auto-generated method stub
 		super.onStop();
 	}
-
+	
 }

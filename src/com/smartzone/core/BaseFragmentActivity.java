@@ -82,8 +82,8 @@ public class BaseFragmentActivity extends FragmentActivity implements
 			mLeftBtn.setOnClickListener(this);
 		if (mRight1Btn != null)
 			mRight1Btn.setOnClickListener(this);
-		if (mRight2Btn != null)
-			mRight2Btn.setOnClickListener(this);
+//		if (mRight2Btn != null)
+//			mRight2Btn.setOnClickListener(this);
 	}
 
 	protected void setPageTitle(String title) {
@@ -121,8 +121,10 @@ public class BaseFragmentActivity extends FragmentActivity implements
 	}
 
 	public void setRight2BtnClickListenser(View.OnClickListener listenser) {
+		if(mRight2Btn != null){
+			mRight2Btn.setVisibility(View.VISIBLE);	
+		}
 		if (title_right_layout_2 != null) {
-			mRight2Btn.setVisibility(View.VISIBLE);
 			title_right_layout_2.setOnClickListener(listenser);
 		}
 	}

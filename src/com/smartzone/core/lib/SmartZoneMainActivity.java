@@ -173,6 +173,23 @@ public class SmartZoneMainActivity extends BaseFragmentActivity {
 				moveToSelectedPage(3);
 			}
 		});
+		setRight2BtnClickListenser(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				CommUtils.showToast(getApplicationContext(), "search click...");
+			}
+		});
+		
+		setRight1BtnClickListenser(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				// TODO Auto-generated method stub
+				CommUtils.showToast(getApplicationContext(), "location click...");
+			}
+		});
 
 	}
 

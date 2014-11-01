@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
+import android.content.res.Resources;
+import android.util.TypedValue;
 
 import com.smartzone.core.SmartZoneApplication;
 
@@ -19,6 +21,10 @@ public class CommUtils {
 	private static int[] mScreenSize = { -1, -1 };
 	public static final String ENCODE_GBK = "gbk";
 	public static final String ENCODE_UTF = "utf-8";
+	
+	public static int dpToPx(Resources res, int dp) {
+		return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, res.getDisplayMetrics());
+	}
 
 	public static void initScreenSize() {
 		mScreenSize[0] = -1;

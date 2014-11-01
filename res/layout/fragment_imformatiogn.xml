@@ -4,21 +4,17 @@
     android:layout_height="match_parent"
     android:background="@color/main_background" >
 
-    <ImageView
-        android:id="@+id/type_logo"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/banner_default"
-        android:contentDescription="@null" />
+	<com.smartzone.core.view.JazzyViewPager 
+	    android:id="@+id/type_banner"
+	    android:layout_width="fill_parent"
+	    android:layout_height="160dp">
+	</com.smartzone.core.view.JazzyViewPager>
 
     <GridView
         android:id="@+id/gridView"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/type_logo"
+        android:layout_below="@+id/type_banner"
         android:background="@color/white"
         android:cacheColorHint="#00000000"
         android:listSelector="@drawable/comm_press_background"

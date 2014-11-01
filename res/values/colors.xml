@@ -54,9 +54,9 @@
     <color name="btn_normal_bg">#00000000</color>
 
     <!-- TAB文字默认 -->
-    <color name="tab_def">#505050</color>
+    <color name="tab_def">#9D9F9E</color>
     <!-- TAB高亮 -->
-    <color name="tab_sel">#B3B3B3</color>
+    <color name="tab_sel">#DADDDC</color>
 
      <color name="mine_item_press_back">#f0f0f0</color>
      
@@ -76,6 +76,7 @@
     <color name="comm_item_press_color">#33000000</color>
     <color name="gray_white">#44FCFCFC</color>
     <color name="main_background">#F0F0F0</color>
+    <color name="normal_title_background">#FAFAFA</color>
     <color name="tabbar_background">#1B1C1E</color>
-    
+    <color name="holo_blue">#FF33E5B5</color>
 </resources>

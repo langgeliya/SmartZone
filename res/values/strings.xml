@@ -12,4 +12,19 @@
 	<string name="my_page_boardcast">小区广播</string>
 	<string name="my_page_privatemsg">我的私信</string>
 	<string name="my_page_collection">我的收藏</string>
+	
+	<string-array name="jazzy_effects">
+        <item>Standard</item>
+        <item>Tablet</item>
+        <item>CubeIn</item>
+        <item>CubeOut</item>
+        <item>FlipVertical</item>
+        <item>FlipHorizontal</item>
+        <item>Stack</item>
+        <item>ZoomIn</item>
+        <item>ZoomOut</item>
+        <item>RotateUp</item>
+        <item>RotateDown</item>
+        <item>Accordion</item>
+    </string-array>
 </resources>

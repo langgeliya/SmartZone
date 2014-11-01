@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="50dp"
     android:layout_alignParentTop="true"
-    android:background="#F4D230"
+    android:background="@color/normal_title_background"
     android:gravity="center_vertical" >
 
     <!-- 标题栏左边返回图标 -->
@@ -27,7 +27,7 @@
         android:ellipsize="end"
         android:gravity="center"
         android:lines="1"
-        android:textColor="@color/tab_sel"
+        android:textColor="@color/text_color"
         android:textSize="20sp" />
 
     <!-- 标题栏右边第一个图标 -->
@@ -59,6 +59,7 @@
             android:layout_height="24dp"
             android:layout_centerInParent="true"
         	android:background="#00000000"
+        	android:clickable="false"
             android:contentDescription="@null"
             android:visibility="gone" />
     </RelativeLayout>
