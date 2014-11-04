@@ -13,6 +13,7 @@ import android.view.Display;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.smartzone.core.SmartZoneApplication;
 
 public class CommUtils {
@@ -149,4 +150,5 @@ public class CommUtils {
 		final float scale = context.getResources().getDisplayMetrics().density;
 		return (int) (pxValue / scale + 0.5f);
 	}
+	
 }

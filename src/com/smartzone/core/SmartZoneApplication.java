@@ -15,6 +15,7 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 import com.smartzone.core.utils.CommUtils;
 
 public class SmartZoneApplication extends Application {
@@ -22,6 +23,18 @@ public class SmartZoneApplication extends Application {
 	public static Context mContext = null;
 	public ArrayList<Activity> activityList = new ArrayList<Activity>();
 	private static String ScreenOrientation = "";
+	
+	public static DisplayImageOptions albumOption;
+	public static DisplayImageOptions categoryOption;
+	public static DisplayImageOptions albumRroundOption;
+	public static DisplayImageOptions djOption;
+	public static DisplayImageOptions albumHeadOption;
+	public static DisplayImageOptions djHeadOption;
+	public static DisplayImageOptions secHeadOption;
+	public static DisplayImageOptions playStateOption;
+	public static DisplayImageOptions playImageOption;
+	public static DisplayImageOptions emptyImageOption;
+	public static DisplayImageOptions playBackOption;
 
 	@Override
 	public void onCreate() {
@@ -133,6 +146,151 @@ public class SmartZoneApplication extends Application {
 		if (getScreenOrientation(mContext).equals("landscape"))
 			return false;
 		return true;
+	}
+	
+	public static DisplayImageOptions getCategoryOption() {
+		if (categoryOption == null) {
+			categoryOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.bitmapConfig(getBitmapConfig()).cacheInMemory(true)
+					.cacheOnDisk(true).considerExifParams(true).build();
+		}
+		return categoryOption;
+	}
+
+	public static DisplayImageOptions getAlbumOption() {
+		if (albumOption == null) {
+			albumOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.bitmapConfig(getBitmapConfig()).cacheInMemory(true)
+					.cacheOnDisk(true).considerExifParams(true).build();
+		}
+		return albumOption;
+	}
+
+	public static DisplayImageOptions getAlbumRoundOption(Context mContext) {
+		if (albumRroundOption == null) {
+			albumRroundOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.bitmapConfig(getBitmapConfig())
+					.cacheInMemory(true)
+					.cacheOnDisk(true)
+					.considerExifParams(true)
+					.displayer(
+							new RoundedBitmapDisplayer(CommUtils.dip2px(
+									mContext, 3))).build();
+		}
+		return albumRroundOption;
+	}
+
+	public static DisplayImageOptions getDjOption() {
+		if (djOption == null) {
+			djOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher).cacheInMemory(true)
+					.bitmapConfig(getBitmapConfig()).cacheOnDisk(true)
+					.considerExifParams(true)
+					.displayer(new RoundedBitmapDisplayer(1000)) // 需要指定合适的圆角半径
+					.build();
+		}
+		return djOption;
+	}
+
+	public static DisplayImageOptions getAlbumHeadOption() {
+		if (albumHeadOption == null) {
+			albumHeadOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.bitmapConfig(getBitmapConfig()).cacheInMemory(true)
+					.cacheOnDisk(true).considerExifParams(true).build();
+		}
+		return albumHeadOption;
+	}
+
+	public static DisplayImageOptions getDjHeadOption() {
+		if (djHeadOption == null) {
+			djHeadOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.bitmapConfig(getBitmapConfig()).cacheInMemory(true)
+					.cacheOnDisk(true).considerExifParams(true).build();
+		}
+		return djHeadOption;
+	}
+
+	public static DisplayImageOptions getSecHeadOption() {
+		if (secHeadOption == null) {
+			secHeadOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.cacheInMemory(true).bitmapConfig(getBitmapConfig())
+					.cacheOnDisk(true).considerExifParams(true).build();
+		}
+		return secHeadOption;
+	}
+
+	public static DisplayImageOptions getPlayImageOption() {
+		if (playImageOption == null) {
+			playImageOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.cacheInMemory(true).bitmapConfig(getBitmapConfig())
+					.cacheOnDisk(true).considerExifParams(true).build();
+		}
+		return playImageOption;
+	}
+
+	public static DisplayImageOptions getPlayStateOption(Context mContext) {
+		if (playStateOption == null) {
+			playStateOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.cacheInMemory(true)
+					.bitmapConfig(getBitmapConfig())
+					.cacheOnDisk(true)
+					.considerExifParams(true)
+					.displayer(
+							new RoundedBitmapDisplayer(CommUtils.dip2px(
+									mContext, 3))).build();
+		}
+		return playStateOption;
+	}
+
+	public static DisplayImageOptions getEmptyOption(Context mContext) {
+		if (emptyImageOption == null) {
+			emptyImageOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.bitmapConfig(getBitmapConfig()).considerExifParams(true)
+					.build();
+		}
+		return emptyImageOption;
+	}
+
+	public static DisplayImageOptions getPlayBackOption(Context mContext) {
+		if (playBackOption == null) {
+			playBackOption = new DisplayImageOptions.Builder()
+					.showImageOnLoading(R.drawable.ic_launcher)
+					.showImageForEmptyUri(
+							R.drawable.ic_launcher)
+					.showImageOnFail(R.drawable.ic_launcher)
+					.bitmapConfig(getBitmapConfig()).considerExifParams(true)
+					.build();
+		}
+		return playBackOption;
 	}
 
 }

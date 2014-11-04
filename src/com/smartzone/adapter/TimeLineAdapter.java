@@ -2,9 +2,6 @@ package com.smartzone.adapter;
 
 import java.util.ArrayList;
 
-import com.smartzone.bean.SimBean;
-import com.smartzone.core.R;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +10,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.smartzone.bean.SimBean;
+import com.smartzone.core.R;
+import com.smartzone.core.SmartZoneApplication;
 
 public class TimeLineAdapter extends BaseAdapter {
 	private Context mContext;
@@ -67,7 +69,9 @@ public class TimeLineAdapter extends BaseAdapter {
 		if(position % 2 == 0){
 			holder.logo.setImageResource(R.drawable.icon_share_weixin);
 		}else {
-			holder.logo.setImageResource(R.drawable.icon_share_xinlang);
+//			holder.logo.setImageResource(R.drawable.icon_share_xinlang);
+			ImageLoader.getInstance().displayImage("http://anyradio-pics.b0.upaiyun.com/webView/weibo/first_qqzone.jpg?5",
+					holder.logo, SmartZoneApplication.getAlbumOption());
 		}
 		holder.name.setText(bean.k2);
 		holder.time.setText(bean.time);
