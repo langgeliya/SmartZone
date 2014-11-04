@@ -104,3 +104,11 @@ bin/classes/com/smartzone/core/R$attr.class
 bin/res/crunch/drawable-hdpi/icon_home_community_normal.png
 
 bin/res/crunch/drawable-hdpi/icon_home_community_selected.png
+
+bin/res/crunch/drawable-hdpi/ic_launcher.png
+
+bin/res/crunch/drawable-mdpi/ic_launcher.png
+
+bin/res/crunch/drawable-xhdpi/ic_launcher.png
+
+bin/res/crunch/drawable-xxhdpi/ic_launcher.png
