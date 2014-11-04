@@ -100,3 +100,7 @@ bin/classes/com/smartzone/core/utils/ActivityUtils.class
 bin/classes/com/smartzone/core/R.class
 
 bin/classes/com/smartzone/core/R$attr.class
+
+bin/res/crunch/drawable-hdpi/icon_home_community_normal.png
+
+bin/res/crunch/drawable-hdpi/icon_home_community_selected.png
