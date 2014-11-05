@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.smartzone.bean.AddressBean;
 import com.smartzone.bean.SimBean;
 import com.smartzone.core.R;
 import com.smartzone.core.utils.CommUtils;
@@ -19,14 +20,14 @@ import com.smartzone.core.utils.CommUtils;
 public class MessageAdapter extends BaseAdapter {
 	private Context mContext;
 	private LayoutInflater inflater = null;
-	private ArrayList<SimBean> dataList = null;
-	public MessageAdapter(Context mContext, ArrayList<SimBean> dataList) {
+	private ArrayList<AddressBean> dataList = null;
+	public MessageAdapter(Context mContext, ArrayList<AddressBean> dataList) {
 		this.mContext = mContext;
 		this.dataList = dataList;
 		this.inflater = LayoutInflater.from(mContext);
 	}
 	
-	public void setDataSource(ArrayList<SimBean> dataList) {
+	public void setDataSource(ArrayList<AddressBean> dataList) {
 		this.dataList = dataList;
 	}
 
@@ -51,7 +52,7 @@ public class MessageAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View contentView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		final SimBean bean = dataList.get(position);
+		final AddressBean bean = dataList.get(position);
 		ViewHolder holder = null;
 		if(contentView == null){
 			contentView = inflater.inflate(R.layout.message_item, null);
@@ -70,15 +71,15 @@ public class MessageAdapter extends BaseAdapter {
 		}else {
 			holder.logo.setImageResource(R.drawable.icon_share_xinlang);
 		}
-		holder.name.setText(bean.k2);
-		holder.title.setText(bean.title);
-		holder.time.setText(bean.time);
+		holder.name.setText(bean.name);
+		holder.title.setText(bean.address);
+		holder.time.setText(bean.telephone);
 		holder.main.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
 				// TODO Auto-generated method stub
-				CommUtils.showToast(mContext, bean.contents);
+				CommUtils.showToast(mContext, bean.location_lng + ", " + bean.location_lat);
 			}
 		});
 		

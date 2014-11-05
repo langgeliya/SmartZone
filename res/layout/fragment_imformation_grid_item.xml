@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:baselineAligned="false"
     android:layout_width="fill_parent"
-    android:layout_height="match_parent" >
-
+    android:layout_height="match_parent" 
+    android:orientation="horizontal">
+    
     <RelativeLayout
-        android:id="@+id/main"
+        android:id="@+id/main0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="12dp"
-        android:layout_centerInParent="true">
+        android:layout_weight="1">
 
         <ImageView
-            android:id="@+id/type_logo"
+            android:id="@+id/type_logo0"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_marginBottom="8dp"
@@ -20,14 +22,68 @@
             android:contentDescription="@null" />
 
         <TextView
-            android:id="@+id/type_title"
+            android:id="@+id/type_title0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/type_logo"
+            android:layout_below="@+id/type_logo0"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true"
+            android:textColor="@color/text_num_gray"
+            android:textSize="12sp" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/main1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/type_logo1"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="8dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/type_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/type_logo1"
+            android:layout_centerHorizontal="true"
+            android:singleLine="true"
+            android:textColor="@color/text_num_gray"
+            android:textSize="12sp" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/main2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/type_logo2"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginBottom="8dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/type_title2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/type_logo2"
             android:layout_centerHorizontal="true"
             android:singleLine="true"
             android:textColor="@color/text_num_gray"
             android:textSize="12sp" />
     </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

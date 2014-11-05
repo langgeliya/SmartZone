@@ -61,9 +61,9 @@ public class ActivityUtils {
 					R.anim.push_right_out);
 		}
 	}
-	public static void startClassifyActivity(Context context, TypeBean b) {
+	public static void startClassifyActivity(Context context, String title) {
 		Intent intent = new Intent(context, ClassifyActivity.class);
-		intent.putExtra("title", b.title);
+		intent.putExtra("title", title);
 		startActivity(context, intent);
 	}
 }

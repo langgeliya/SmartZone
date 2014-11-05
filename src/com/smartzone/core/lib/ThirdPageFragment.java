@@ -9,9 +9,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.smartzone.adapter.BannerAdapter;
 import com.smartzone.adapter.ImformationAdapter;
@@ -22,13 +24,14 @@ import com.smartzone.core.view.JazzyViewPager;
 import com.smartzone.core.view.JazzyViewPager.TransitionEffect;
 
 public class ThirdPageFragment extends Fragment {
-	private GridView grid;
+	private ListView listView;
 	private ArrayList<TypeBean> mData;
 	private ImformationAdapter mAdapter;
 	private JazzyViewPager mJazzy;
 	private ImageView imageView;
 	private ImageView[] imageViews;
 	private LinearLayout group;
+	private View headView;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -41,19 +44,23 @@ public class ThirdPageFragment extends Fragment {
 		// TODO Auto-generated method stub
 		View view = inflater.inflate(R.layout.fragment_imformatiogn, null);
 		init(view);
-		setupJazziness(view, TransitionEffect.Tablet);
-		initPagerIndicator(5);
 		initListener();
 		initData();
 		return view;
 	}
 
 	private void init(View view) {
-		group = (LinearLayout)view.findViewById(R.id.viewGroup);
+		headView = LayoutInflater.from(getActivity()).inflate(R.layout.view_third_fragment_header, null);
+		group = (LinearLayout)headView.findViewById(R.id.viewGroup);
+		setupJazziness(headView, TransitionEffect.Tablet);
+		initPagerIndicator(5);
 		mData = new ArrayList<TypeBean>();
 		mAdapter = new ImformationAdapter(mData, getActivity());
-		grid = (GridView)view.findViewById(R.id.gridView);
-		grid.setAdapter(mAdapter);
+		listView = (ListView)view.findViewById(R.id.listView);
+		TextView tv = new TextView(getActivity());
+		tv.setText("head view");
+		listView.addHeaderView(headView);
+		listView.setAdapter(mAdapter);
 	}
 	
 	private void setupJazziness(View v, TransitionEffect effect) {
@@ -113,28 +120,39 @@ public class ThirdPageFragment extends Fragment {
 	
 	private void initData() {
 		TypeBean t1 = new TypeBean();
-		t1.title = "外卖";
+		t1.title0 = "招聘";
+		t1.title1 = "外卖";
+		t1.title2 = "家政服务";
 		
 		TypeBean t2 = new TypeBean();
-		t2.title = "生活配送";
+		t2.title0 = "生活配送0";
+		t2.title1 = "生活配送1";
+		t2.title2 = "生活配送2";
 		
 		TypeBean t3 = new TypeBean();
-		t3.title = "城市便利";
+		t3.title0 = "城市便利0";
+		t3.title1 = "城市便利1";
+		t3.title2 = "城市便利2";
 		
 		TypeBean t4 = new TypeBean();
-		t4.title = "水果";
+		t4.title0 = "水果0";
+		t4.title1 = "水果1";
+		t4.title2 = "水果2";
 		
 		TypeBean t5 = new TypeBean();
-		t5.title = "家政服务";
-		
-		TypeBean t6 = new TypeBean();
-		t6.title = "更多";
+		t5.title0 = "家政服务0";
+		t5.title1 = "家政服务1";
+		t5.title2 = "更多";
+//		
+//		TypeBean t6 = new TypeBean();
+//		t6.title = "更多";
 		mData.add(t1);
 		mData.add(t2);
 		mData.add(t3);
 		mData.add(t4);
 		mData.add(t5);
-		mData.add(t6);
+//		mData.add(t6);
+//		listView.addHeaderView(headView);
 		mAdapter.setDataSource(mData);
 		mAdapter.notifyDataSetChanged();
 	}
